@@ -1,78 +1,52 @@
 # utility-tools
+
 Useful tools for day-to-day life hacks.
 
-## Tools
+## Overview
 
-### Obsidian Index Generator
+This repository contains various day-to-day useful tools and utility scripts that make things go smoother and better. Each tool is designed to be self-contained and easy to use.
 
-A Python script that scans directories for markdown files and creates a comprehensive index.md file for easy navigation in Obsidian.
+## Available Tools
 
-#### Features
+### Index Generator
 
-- Scans current directory and all subdirectories for `.md` files
-- Automatically excludes the generated `index.md` from the listing
-- Organizes files by directory structure
-- Generates statistics (total files and directories)
-- Creates Obsidian-compatible wiki-links for easy navigation
-- Provides a table of contents with directory anchors
+The `index_generator.py` script scans the current directory and subdirectories to create an organized `index.md` file for easy navigation.
 
-#### Usage
+**Features:**
+- Automatically discovers Python scripts, documentation, and configuration files
+- Extracts descriptions from Python docstrings
+- Generates organized navigation with categories
+- Ignores common directories (.git, __pycache__, venv, etc.)
 
-**Run in a specific directory:**
+**Usage:**
+
 ```bash
-python create_obsidian_index.py /path/to/your/obsidian/vault
+# Generate index in current directory
+python index_generator.py
+
+# Generate index for a specific directory
+python index_generator.py -d /path/to/directory
+
+# Specify custom output file
+python index_generator.py -o custom_index.md
 ```
 
-**Run in the current directory:**
-```bash
-cd /path/to/your/obsidian/vault
-python create_obsidian_index.py
-```
+## Getting Started
 
-#### Output
+1. Clone this repository
+2. Run any tool directly with Python:
+   ```bash
+   python index_generator.py
+   ```
 
-The script generates an `index.md` file with:
-- Generation timestamp
-- Statistics (total files and directories)
-- Table of contents with clickable directory links
-- Organized file listings by directory
-- Obsidian wiki-links for each file
+## Contributing
 
-#### Example Output
+Feel free to add more utility tools to this repository! Each tool should:
+- Be self-contained and easy to use
+- Include clear documentation
+- Follow Python best practices
+- Have descriptive docstrings
 
-```markdown
-# Obsidian Notes Index
+## License
 
-*Generated on: 2026-01-10 13:13:28*
-
-## Statistics
-
-- **Total Files**: 5
-- **Total Directories**: 3
-
-## Table of Contents
-
-- [📁 Root Directory](#root)
-- [📁 personal](#personal)
-- [📁 programming](#programming)
-
----
-
-## Root Directory
-
-*1 file(s)*
-
-- [[welcome|welcome]]
-
-## personal
-
-*2 file(s)*
-
-- [[personal/daily-journal|daily-journal]]
-- [[personal/goals|goals]]
-```
-
-#### Requirements
-
-- Python 3.6 or higher
-- No external dependencies (uses only standard library)
+This project is licensed under the CC0 1.0 Universal license - see the LICENSE file for details.
